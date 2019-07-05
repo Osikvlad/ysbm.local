@@ -254,18 +254,10 @@ class GuzzleController extends Controller
         }
     }
 
-    public function login(Request $request)
+    public function login()
     {
-        $token = $request->session()->get('token');
-
-        if(empty($token)) {
-            return view('login');
-        }else{
-            Session::flash('success-login', 'Вы уже авторизированы.');
-            Session::flash('alert-class', 'alert-info');
-            return redirect()->to('/shipment');
-        }
-        //return view('login');
+        
+        return view('login');
     }
 
     public function deleteItem(Request $request){
